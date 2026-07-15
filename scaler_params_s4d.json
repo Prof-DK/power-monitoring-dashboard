@@ -1,0 +1,5 @@
+{
+  "min": 31.63,
+  "max": 1105.96,
+  "keterangan": "kVA_scaled = (kVA - min) / (max - min); kVA = kVA_scaled * (max - min) + min"
+}
