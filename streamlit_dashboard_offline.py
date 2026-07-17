@@ -303,13 +303,13 @@ st.divider()
 # TERAKHIR dari rentang tanggal yang dipilih), meniru tampilan
 # panel monitoring produksi Anda (gauge arus/tegangan per fasa).
 # =========================================================
-st.subheader("📟 Snapshot Parameter (Gaya Panel Monitoring)")
+st.subheader("Parameter")
 
 # pilih titik waktu yang ingin dilihat sebagai "snapshot" -- default
 # ke titik terakhir dalam rentang yang dipilih
 snapshot_options = df_range['Date Time'].dt.strftime('%Y-%m-%d %H:%M:%S').tolist()
 selected_ts = st.selectbox(
-    "Pilih titik waktu untuk ditampilkan sebagai snapshot",
+    "Pilih titik waktu",
     options=snapshot_options,
     index=len(snapshot_options) - 1,  # default: titik terakhir
 )
@@ -391,7 +391,7 @@ st.divider()
 # =========================================================
 # GRAFIK UTAMA: kVA SEPANJANG WAKTU
 # =========================================================
-st.subheader("Grafik Daya Semu (kVA)")
+st.subheader("Grafik Daya Semu real dan prediksi (kVA)")
 
 # REVISI: hitung prediksi (untuk overlay di grafik) -- MAPE/MAE tidak
 # ditampilkan lagi di dashboard ini sesuai permintaan, jadi cukup hitung
@@ -482,7 +482,7 @@ st.divider()
 # TABEL DATA (SAMPLE, biar tidak berat kalau rentang besar)
 # =========================================================
 st.subheader("Tabel Data")
-show_all = st.checkbox("Tampilkan semua baris (bisa berat kalau rentang besar)")
+show_all = st.checkbox("Tampilkan semua baris")
 
 display_df = df_range if show_all else df_range.tail(100)
 st.dataframe(
