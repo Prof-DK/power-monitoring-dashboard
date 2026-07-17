@@ -321,6 +321,7 @@ def make_gauge(value, title, unit, gauge_min, gauge_max, nominal_low, nominal_hi
     fig = go.Figure(go.Indicator(
         mode="gauge+number",
         value=value,
+        domain={'x': [0, 1], 'y': [0, 1]},
         number={'suffix': f" {unit}", 'font': {'size': 22}},
         gauge={
             'axis': {'range': [gauge_min, gauge_max], 'tickfont': {'size': 8}},
