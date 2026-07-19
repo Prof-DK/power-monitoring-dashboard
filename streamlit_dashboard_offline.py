@@ -487,8 +487,13 @@ show_all = st.checkbox("Tampilkan semua baris")
 
 display_df = df_range if show_all else df_range.tail(100)
 st.dataframe(
-    display_df[['Date Time', 'kVA', 'IR', 'IS', 'IT', 'VLLAvg', 'F', 'kWh', 'capacity(%)', 'status']],
+    display_df[[
+        'Date Time', 'kVA',
+        'IR', 'IS', 'IT', 'IAvg',
+        'VRS', 'VST', 'VTR', 'VLLAvg',
+        'VRN', 'VSN', 'VTN', 'VNAvg',
+        'F', 'kWh', 'capacity(%)', 'status'
+    ]],
     use_container_width=True,
     height=350,
 )
-
